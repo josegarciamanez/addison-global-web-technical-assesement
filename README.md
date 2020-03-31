@@ -1,68 +1,75 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# Addison Global Web Technical Assesement
 
-## Available Scripts
+## Introduction
 
-In the project directory, you can run:
+Welcome to the Addison Global Web Tech Test.
 
-### `yarn start`
+The primary goal of this exercise is to assess how you reason about your ability to write well defined HTML, CSS and JavaScript using the latest patterns and technologies in a mobile first approach. There's no hard rules or tricky questions.
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+**We hope you have fun.**
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
+## Glossary
 
-### `yarn test`
+- Promotion - A sports or casino offering with a purpose of encouraging potential customers to sign up.
 
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Brief
 
-### `yarn build`
+For this exercise you are required to build a fast, responsive, mobile first promotions page. This promotions page consists of two views or filters which exist on a single page:
 
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
+- New Customers - a list of promotions only applicable to new customers
+- All Promotions - a list of all promotions
 
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
+When the page loads, you should fetch the data to render the promotions. The promotions object contains a flag `onlyNewCustomers` which indicates whether a promotion is only applicable to new customers or not.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+Promotions must be sorted according to the `sequence` property.
 
-### `yarn eject`
+## Data
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+We've provided an endpoint that can be accessed using the following URL:
+<a href="http://www.mocky.io/v2/5bc3b9cc30000012007586b7" target="_blank">http://www.mocky.io/v2/5bc3b9cc30000012007586b7</a>
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+You can also find a sample of the data [data.json](data.json)
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+### Types
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+```js
+/** The response type of the API call */
+type ResponseType = PromotionType[];
 
-## Learn More
+/** Promotion Entity */
+type PromotionType = {
+  id: string,
+  name: string,
+  description: string,
+  heroImageUrl: string,
+  onlyNewCustomers: boolean,
+  termsAndConditionsButtonText: string,
+  joinNowButtonText: string,
+  sequence: number
+};
+```
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+## Technology
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+Since the purpose of this exercise is to assess your HTML, CSS and JavaScript abilities, we discourage the use of CSS frameworks such as Bootstrap or Material UI but encourage the use of React or any other frontend framework.
 
-### Code Splitting
+## Screens
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
+The provided screens are a wireframe, not a final design for the application. You are expected to implement the user interface by yourself.
 
-### Analyzing the Bundle Size
+### All Promotions
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
+![All Promotions](img/all-promotions.png 'All Promotions')
 
-### Making a Progressive Web App
+### New Customers Promotions
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
+![New Customers Promotions](img/new-customers-promotions.png 'New Customers Promotions')
 
-### Advanced Configuration
+## The Deliverable
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
+- A bundled/archived repository showing your commit history or a link to an accessible private repository with your work in (Github can host private repositories at a cost; there is no charge for doing so with Bitbucket). Git example for sending us a standalone bundle:
 
-### Deployment
+        git bundle create <yourname>.bundle --all --branches
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `yarn build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+- A Readme.md file explaining the decisions you've made solving this task including technology and library choices.
+- Any instructions required to run your solution and tests in a Linux environment.
